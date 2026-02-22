@@ -1,9 +1,8 @@
 #include "main.h"
 #include "config.hpp"
 
-
-//bkue coloursort
-void highbluesort() {
+//colour sort for blue alliance
+void highbluesort() { //long goal colour sort
 
       if ((optical.get_hue() > 100 && optical.get_hue() < 225)) {
         high();
@@ -17,7 +16,7 @@ void highbluesort() {
       }
 }
 
-void middlebluesort() {
+void middlebluesort() { //middle goal colour sort
 
       if ((optical.get_hue() > 100 && optical.get_hue() < 225)) {
         middle();
@@ -32,8 +31,8 @@ void middlebluesort() {
 }
 
 
-//red colour sort
-void highredsort() {
+//colour sort for red alliance
+void highredsort() { //long goal colour sort
 
       if ((optical.get_hue() > 5 && optical.get_hue() < 25)) {
         high();
@@ -47,7 +46,7 @@ void highredsort() {
       }
 }
 
-void middleredsort() {
+void middleredsort() { //middle goal colour sort
 
       if ((optical.get_hue() > 5 && optical.get_hue() < 25)) {
         middle();

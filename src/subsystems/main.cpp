@@ -21,21 +21,8 @@ void initialize() {
   rotation_sensor.reset();
   // master.rumble(chassis.drive_imu_calibrated() ? "." : "-");
 
-  // debugMode();
 
 }
-
-
-// void debugMode(){
-//     pros::Task screen_task([&]() {
-//         while (true) {
-//             pros::delay(20);
-//             lemlib::Pose pose = chassis.getPose();
-//             controller.print(1, 0,"th: %f, Y: %f, Th:%f\n", pose.theta, pose.y, pose.theta);
-//         }
-//     });
-// }
-
 
 
 void high() { // This is for high

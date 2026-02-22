@@ -38,8 +38,8 @@ void default_constants() {
 }
 
 
-// //once again part the waves please :))
-
+//old functions for autons and opcontrol
+//not used anymore
 void bunnyUp() {
   bool bunnyStatus = false;
 
@@ -54,9 +54,10 @@ void loaderUp() {
   loader.set_value(loaderStatus);
 }
 
-//auton code stuff
 
-void soloautonred() { 
+//Autonmous functions
+
+void soloautonred() { //sawp WIP
 
 
   chassis.pid_drive_set(31_in, DRIVE_SPEED);
@@ -104,12 +105,12 @@ void soloautonred() {
   pros::delay(2000);
 }
 
-void pidtesting() {
+void pidtesting() { //testing PID
   chassis.pid_drive_set(48_in, DRIVE_SPEED);
   chassis.pid_wait();
 }
 
-void rightrush() {
+void rightrush() { //rush to the right matchload and score on the high goal
   chassis.pid_drive_set(-30_in, DRIVE_SPEED);
   chassis.pid_wait();
   hoarding();
@@ -146,7 +147,7 @@ void rightrush() {
 
 }
 
-void right7high() {
+void right7high() { //7 on long goal and wing
   chassis.odom_xyt_set(-46.5_in, -15.5_in, 270_deg);
   hoarding();
   chassis.pid_odom_set({{{-19_in, -25.5_in, 310_deg}, rev, 110}});
@@ -178,7 +179,7 @@ void right7high() {
   chassis.pid_wait();
 }
 
-void redLeft() {
+void redLeft() { //main left side auton
   chassis.pid_drive_set(-32_cm, DRIVE_SPEED, true);
   chassis.pid_wait();
   hoarding();
@@ -227,7 +228,7 @@ void redLeft() {
   pros::delay(3967);
 }
 
-void redRight() {
+void redRight() { //old right side auton (NOT USED ANYMORE)
   chassis.pid_drive_set(-32_cm, DRIVE_SPEED, true);
   chassis.pid_wait();
   hoarding();
@@ -267,7 +268,7 @@ void redRight() {
   chassis.pid_wait();
 }
 
-void blueLeft() {
+void blueLeft() { //old left side auton w coloursort (NOT USED ANYMORE)
   chassis.pid_drive_set(-32_cm, DRIVE_SPEED, true);
   chassis.pid_wait();
   hoarding();
@@ -317,7 +318,7 @@ void blueLeft() {
 
 }
 
-void blueRight() {
+void blueRight() { //old right side auton w coloursort (NOT USED ANYMORE)
   chassis.pid_drive_set(-32_cm, DRIVE_SPEED, true);
   chassis.pid_wait();
   hoarding();
@@ -357,39 +358,7 @@ void blueRight() {
   chassis.pid_wait();
 }
 
-void stupidonethatdavidwantsbruh() {
-  chassis.pid_drive_set(-32_cm, DRIVE_SPEED, true);
-  chassis.pid_wait();
-  hoarding();
-  chassis.pid_wait();
-  chassis.pid_turn_set(320_deg, TURN_SPEED);
-  chassis.pid_wait();
-  chassis.pid_drive_set(-55_cm, 60, true);
-  chassis.pid_wait();
-  pros::delay(1000);
-  chassis.pid_wait();
-  motorstop();
-  chassis.pid_wait();
-  chassis.pid_drive_set(22_cm, DRIVE_SPEED, true);
-  chassis.pid_wait();
-  chassis.pid_turn_set(225_deg, TURN_SPEED);
-  chassis.pid_wait();
-  chassis.pid_drive_set(45_cm, DRIVE_SPEED, true);
-  chassis.pid_wait();
-  middle();
-  pros::delay(1700);
-  chassis.pid_wait();
-  motorstop();
-  chassis.pid_drive_set(-127_cm, DRIVE_SPEED, true);
-  chassis.pid_wait();
-  chassis.pid_turn_set(180_deg, TURN_SPEED);
-  chassis.pid_wait();
-  loader.set_value(1);
-  chassis.pid_drive_set(-45_cm, 60, true);
-  hoarding();
-}
-
-void westmechnov() {
+void westmechnov() { //First auton at WM Tounament (NOT USED ANYMORE)
     chassis.pid_drive_set(-80_cm, 70, true); //135
     chassis.pid_wait();
     chassis.pid_turn_set(90_deg, TURN_SPEED);
@@ -409,7 +378,7 @@ void westmechnov() {
     motorstop();  
 }
 
-void leftnotsort() {
+void leftnotsort() { //Left side auton w/out colour sort (NOT USED ANYMORE)
   chassis.pid_drive_set(-80_cm, 70, true); //135
   chassis.pid_wait();
   chassis.pid_turn_set(270_deg, TURN_SPEED);
@@ -429,7 +398,7 @@ void leftnotsort() {
   motorstop();
 }
 
-void rightnotsort(){
+void rightnotsort(){ //Right side auton w/out colour sort (NOT USED ANYMORE)
   chassis.pid_drive_set(-80_cm, 70, true); //135
   chassis.pid_wait();
   chassis.pid_turn_set(90_deg, TURN_SPEED);
@@ -447,48 +416,4 @@ void rightnotsort(){
   chassis.pid_wait();
   pros::delay(3000);
   motorstop();
-}
-
-void notsort1() { 
-  bool loaderStatus = false;
-  bool bunnyStatus = false;
-  
-  //hoarding();
-  chassis.pid_drive_set(100_cm, 70, true);
-  chassis.pid_wait();
-  motorstop();
-  chassis.pid_turn_set(310_deg, TURN_SPEED);
-  //hoarding();
-  chassis.pid_wait();
-  motorstop();
-  chassis.pid_drive_set(-70_cm, DRIVE_SPEED, true);
-  chassis.pid_wait();
-  chassis.pid_turn_set(45_deg, TURN_SPEED);
-  chassis.pid_wait();
-  chassis.pid_drive_set(5_cm, DRIVE_SPEED, true);
-  middle();
-  chassis.pid_wait();
-  motorstop();
-  chassis.pid_drive_set(-90_cm, DRIVE_SPEED, true);
-  chassis.pid_wait();
-  chassis.pid_turn_set(180_deg, TURN_SPEED);
-  chassis.pid_wait();
-  loader.set_value(1);
-  chassis.pid_wait();
-  chassis.pid_drive_set(50_cm, DRIVE_SPEED, true);
-  chassis.pid_wait();
-  //hoarding();
-  chassis.pid_wait();
-  motorstop();
-  chassis.pid_drive_set(-65_cm, DRIVE_SPEED, true);
-  chassis.pid_wait();
-  chassis.pid_turn_set(0_deg, TURN_SPEED);
-  chassis.pid_wait();
-  chassis.pid_drive_set(5_cm, DRIVE_SPEED, true);
-  chassis.pid_wait();
-  high();
-  chassis.pid_wait();
-  motorstop();
-  //remember to have a colour sensor thingy incase we had blue balls
-  //prep for drive control to start
 }
