@@ -68,6 +68,7 @@ void low();
 void motorstop();
 void hoarding();
 void highskills();
+void middleskills();
 
 /* Autons */
 void redLeft();

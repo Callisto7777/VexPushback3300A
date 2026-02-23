@@ -1,7 +1,7 @@
 {
   "py/object": "pros.conductor.project.Project",
   "py/state": {
-    "project_name": "right",
+    "project_name": "left",
     "target": "v5",
     "templates": {
       "EZ-Template": {
@@ -424,8 +424,8 @@
       }
     },
     "upload_options": {
-      "description": "roboticsisez.com",
-      "slot": 2
+      "description": "TEEHEE",
+      "slot": 1
     },
     "use_early_access": false
   }

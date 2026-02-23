@@ -32,8 +32,8 @@ void high() { // This is for high
 }
 void middle() { // This is for middle
   location.set_value(true);
-  intake.move_voltage(12000); //positive to intake
-  last_stage.move_voltage(-12000);
+  intake.move_voltage(12000*0.8); //positive to intake
+  last_stage.move_voltage(-12000*0.8);
 }
 void low() { //for the lowgoal
   intake.move_voltage(-12000);
@@ -53,6 +53,16 @@ void highskills() {
   pros::delay(167);                     //
   motorstop();
   high();
+  pros::delay(2067);  
+  motorstop();
+}
+
+void middleskills() {
+  intake.move_voltage(-12000);
+  last_stage.move_voltage(-12000); //last_stage on high         //
+  pros::delay(167);                     //
+  motorstop();
+  middle();
   pros::delay(2067);  
   motorstop();
 }

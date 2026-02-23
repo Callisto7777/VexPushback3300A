@@ -6,7 +6,7 @@ void autonomous() {
     //soloautonred();
     //redRight();
     //rightrush();
-    //redLeft(); 
+    redLeft(); 
     //blueRight();
     //blueLeft();//
     //skills();
@@ -16,5 +16,5 @@ void autonomous() {
     //skills75();
     //skillslemlib();
     //sawp();
-    right7high();
+    //right7high();
 }

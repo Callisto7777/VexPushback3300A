@@ -150,49 +150,62 @@ void rightrush() { //rush to the right matchload and score on the high goal
 void right7high() { //7 on long goal and wing
   chassis.odom_xyt_set(-46.5_in, -15.5_in, 270_deg);
   hoarding();
-  chassis.pid_odom_set({{{-19_in, -25.5_in, 310_deg}, rev, 110}});
+  chassis.pid_odom_set({{{-19_in, -25.5_in, 310_deg}, rev, 120}});
+  pros::delay(467);
+  loader.set_value(1);
   chassis.pid_wait();
 
   chassis.odom_xyt_set(-19_in, -25.5_in, 310_deg);
+  loader.set_value(0);
   chassis.pid_turn_set(45_deg, TURN_SPEED); 
   chassis.pid_wait();
   bunny.set_value(1);
   chassis.pid_odom_set({{{-54_in, -47_in, 90_deg}, rev, 120}});
-  pros::delay(100);
   loader.set_value(1);
   hoarding();
   chassis.pid_wait();
+  chassis.pid_drive_set(-12_in, 140);
   bunny.set_value(0);
-  pros::delay(367);
-  
-  chassis.pid_drive_set(50_in, DRIVE_SPEED);
-  loader.set_value(0);
+  pros::delay(136.7);
   chassis.pid_wait();
+  
+  chassis.pid_drive_set(56.7_in, DRIVE_SPEED);
+  motorstop();
+  pros::delay(267);
+  loader.set_value(0);
   highskills();
+  
 
   chassis.odom_xyt_set(-27_in, -47_in, 90_deg);
-  chassis.pid_odom_set({{-39_in, -35_in}, rev, 110});
+  chassis.pid_odom_set({{-39_in, -38_in}, rev, 120});
   chassis.pid_wait();
   chassis.pid_turn_set(90_deg, TURN_SPEED);
   chassis.pid_wait();
-  chassis.pid_odom_set({{-9_in, -35_in}, fwd, 110});
+  chassis.pid_drive_set(30_in, 150);
   chassis.pid_wait();
 }
 
 void redLeft() { //main left side auton
-  chassis.pid_drive_set(-32_cm, DRIVE_SPEED, true);
-  chassis.pid_wait();
+  // chassis.pid_drive_set(-32_cm, DRIVE_SPEED, true);
+  // chassis.pid_wait();
+  // hoarding();
+  // chassis.pid_wait();
+  // chassis.pid_turn_set(320_deg, TURN_SPEED);
+  // chassis.pid_wait();
+  // chassis.pid_drive_set(-57_cm, 60, true);
+  // pros::delay(567);
+  // loader.set_value(1);
+  // pros::delay(350);
+  // chassis.pid_wait();
+  // motorstop();
+  // chassis.pid_wait();
+  chassis.odom_xyt_set(-46.5_in, 15.5_in, 270_deg);
   hoarding();
-  chassis.pid_wait();
-  chassis.pid_turn_set(320_deg, TURN_SPEED);
-  chassis.pid_wait();
-  chassis.pid_drive_set(-57_cm, 60, true);
-  pros::delay(567);
+  chassis.pid_odom_set({{{-19_in, 25.5_in, 230_deg}, rev, 120}});
+  pros::delay(467);
   loader.set_value(1);
-  pros::delay(350);
   chassis.pid_wait();
-  motorstop();
-  chassis.pid_wait();
+
   chassis.pid_drive_set(20_cm, DRIVE_SPEED, true);
   chassis.pid_wait();
   chassis.pid_turn_set(225_deg, TURN_SPEED);
@@ -200,15 +213,8 @@ void redLeft() { //main left side auton
   chassis.pid_drive_set(40_cm, DRIVE_SPEED, true);
   chassis.pid_wait();
   chassis.pid_drive_set(20_cm, DRIVE_SPEED, true);
-  location.set_value(true);
-  motorstop();
-  intake.move_voltage(-10000);
-  last_stage.move_voltage(-10000); //positive for middle goal
-  pros::delay(367);
-  middle();
-  pros::delay(1760);
   chassis.pid_wait();
-  motorstop();
+  middleskills();
   chassis.pid_drive_set(-130.7_cm, DRIVE_SPEED, true);
   chassis.pid_wait();
   chassis.pid_turn_set(180_deg, TURN_SPEED);
