@@ -53,6 +53,7 @@ void skills75() {
     loader.set_value(0);
     chassis.pid_wait();
     highskills();
+    //reset position
 
     chassis.odom_xyt_set(27_in, -47_in, 270_deg);
     chassis.pid_wait();
@@ -68,6 +69,7 @@ void skills75() {
     chassis.pid_wait();
 
     chassis.odom_xyt_set(27_in, 47_in, 270_deg); //reseting positon
+    //reset ^^^
     chassis.pid_wait();
     loader.set_value(1);
     chassis.pid_odom_set({{60_in, 47_in}, rev, 67}); //going to matchloader
