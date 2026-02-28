@@ -8,14 +8,14 @@ void initialize() {
 
   // Configure your chassis controls
   chassis.opcontrol_curve_buttons_toggle(true);   // Enables modifying the controller curve with buttons on the joysticks
-  //chassis.opcontrol_drive_activebrake_set(0.0);   // Sets the active brake kP. We recommend ~2.  0 will disable.
+  chassis.opcontrol_drive_activebrake_set(2.0);   // Sets the active brake kP. We recommend ~2.  0 will disable.
   chassis.opcontrol_curve_default_set(0.0, 0.0);  // Defaults for curve. If using tank, only the first parameter is used. (Comment this line out if you have an SD card!)
 
   default_constants();
 
   // Initialize chassis and auton selector
   chassis.initialize();
-  // chassis.drive_imu_calibrate();
+  chassis.drive_imu_calibrate();
 
   ez::as::initialize();
   rotation_sensor.reset();
@@ -32,8 +32,8 @@ void high() { // This is for high
 }
 void middle() { // This is for middle
   location.set_value(true);
-  intake.move_voltage(12000); 
-  last_stage.move_voltage(-12000);
+  intake.move_voltage(0.67*12000); 
+  last_stage.move_voltage(-12000*0.67);
 }
 void low() { //for the lowgoal
   intake.move_voltage(-12000);
@@ -48,12 +48,13 @@ void hoarding() { // This is for hoarding
   location.set_value(false);
 }
 void highskills() {
+  loader.set_value(1);
   intake.move_voltage(-12000);
   last_stage.move_voltage(-12000); //last_stage on high         //
-  pros::delay(100);                     //
+  pros::delay(267);                     //
   motorstop();
   high();
-  pros::delay(2367);  
+  pros::delay(1670);  
   motorstop();
 }
 

@@ -16,20 +16,18 @@ void highbluesort() { //long goal colour sort
       }
 }
 
-void middlebluesort() { //middle goal colour sort
+// void middlebluesort() { //middle goal colour sort
 
-      if ((optical.get_hue() > 100 && optical.get_hue() < 225)) {
-        middle();
-      }
-      else if ((optical.get_hue() > 5 && optical.get_hue() < 25)) {
-        high();
-      }
-      else {
-        intake.move_voltage(12000);
-        intake.move_voltage(6700); 
-      }
-}
-
+//          middle();
+//       if ((optical.get_hue() > 5 && optical.get_hue() < 25)) {
+//         high();
+//       }
+//       else {
+//         intake.move_voltage(12000);
+//         intake.move_voltage(6700); 
+//       }
+// }
+//
 
 //colour sort for red alliance
 void highredsort() { //long goal colour sort

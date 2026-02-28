@@ -7,7 +7,7 @@ const int TURN_SPEED = 100;
 
 void default_constants() {
   // P, I, D, and Start I
-  chassis.pid_drive_constants_set(15.0, 10.0, 100.0);        // Fwd/rev constants, used for odom and non odom motions
+  chassis.pid_drive_constants_set(12.0, 0.0, 70.0);        // Fwd/rev constants, used for odom and non odom motions
   chassis.pid_heading_constants_set(10.0, 0.0, 20.0);        // Holds the robot straight while going forward without odom
   
   chassis.pid_turn_constants_set(3.0, 0.05, 20.0, 15.0);     // Turn in place constants
@@ -28,9 +28,9 @@ void default_constants() {
 
   // The amount that turns are prioritized over driving in odom motions
   // - if you have tracking wheels, you can run this higher.  1.0 is the max
-  chassis.odom_turn_bias_set(0.9);
+  chassis.odom_turn_bias_set(0.5);
 
-  chassis.odom_look_ahead_set(7_in);           // This is how far ahead in the path the robot looks at
+  chassis.odom_look_ahead_set(10_in);           // This is how far ahead in the path the robot looks at
   chassis.odom_boomerang_distance_set(16_in);  // This sets the maximum distance away from target that the carrot point can be
   chassis.odom_boomerang_dlead_set(0.625);     // This handles how aggressive the end of boomerang motions are
 
@@ -106,7 +106,7 @@ void soloautonred() { //sawp WIP
 }
 
 void pidtesting() { //testing PID
-  chassis.pid_drive_set(48_in, DRIVE_SPEED);
+  chassis.pid_turn_set(90_deg, DRIVE_SPEED);
   chassis.pid_wait();
 }
 
@@ -193,32 +193,32 @@ void redLeft() { //main left side auton
   loader.set_value(1);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(4_in, DRIVE_SPEED, true); //keep changing value
+  chassis.pid_drive_set(3_in, DRIVE_SPEED, true); //keep changing value
   motorstop();
   chassis.pid_wait();
   chassis.pid_turn_set(135_deg, TURN_SPEED); //this angle is correct 
   chassis.pid_wait();
-  chassis.pid_drive_set(45_cm, DRIVE_SPEED, true);
+  chassis.pid_drive_set(50_cm, DRIVE_SPEED, true);
   location.set_value(true);
   chassis.pid_wait();
   intake.move_voltage(-12000);
   last_stage.move_voltage(-12000);
   pros::delay(100.67);
-  intake.move_voltage(12000);
+  intake.move_voltage(6700);
   last_stage.move_voltage(-12000);
   pros::delay(3076.67);
   
   chassis.odom_xyt_set(-10_in, 8.5_in, 135_deg);
   loader.set_value(0);
   bunny.set_value(1);
-  chassis.pid_odom_set({{{-54_in, 47_in, 90_deg}, rev, 120}});//correct
+  chassis.pid_odom_set({{{-54_in, 45_in, 90_deg}, rev, 120}});//correct //was 47_in for y before
   loader.set_value(1);
   motorstop();
   hoarding();
   chassis.pid_wait();
   chassis.pid_drive_set(-7_in, 140);
   bunny.set_value(0);
-  pros::delay(106.7);
+  pros::delay(97.67);
   chassis.pid_wait();
 
   chassis.pid_drive_set(67_in, 130);

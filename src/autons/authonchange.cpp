@@ -6,14 +6,14 @@ void autonomous() {
     //soloautonred();
     //redRight();
     //rightrush();
-    redLeft(); 
+    //redLeft(); 
     //blueRight();
     //blueLeft();//
     //skills();
     //moveforward();
     //skills();
     //skills30();
-    //skills75();
+    skills75();
     //skillslemlib();
     //sawp();
     //right7high();
